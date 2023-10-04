@@ -26,4 +26,10 @@ public class UserSystemRestController {
     UserSystem getByLogin(@PathVariable("login") final String login) {
         return userSystemRespository.findByLogin(login);
     }
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    void deleteById(@PathVariable("id") final Long id) {
+        userSystemRespository.deleteById(id);
+    }
 }
