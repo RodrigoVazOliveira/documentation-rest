@@ -35,4 +35,10 @@ public class UserSystemRespository {
 
         return new UserSystem(id, "XPTO", "23432432");
     }
+
+    public UserSystem findByLogin(final String login) {
+        System.out.printf("FIND BY LOGIN - %s", login);
+
+        return new UserSystem(1L, login, "242343223");
+    }
 }
