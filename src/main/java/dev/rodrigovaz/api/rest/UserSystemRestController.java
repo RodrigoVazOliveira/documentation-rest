@@ -38,4 +38,10 @@ public class UserSystemRestController {
     void createUser(@RequestBody final UserSystem userSystem) {
         userSystemRespository.save(userSystem);
     }
+
+    @PutMapping
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    void updateUserSystem(@RequestBody UserSystem userSystem) {
+        userSystemRespository.save(userSystem);
+    }
 }
