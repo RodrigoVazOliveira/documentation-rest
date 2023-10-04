@@ -3,13 +3,12 @@ package dev.rodrigovaz.api.rest;
 import dev.rodrigovaz.api.model.UserSystem;
 import dev.rodrigovaz.api.repository.UserSystemRespository;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
+@RequestMapping("/users")
 public class UserSystemRestController {
     private final UserSystemRespository userSystemRespository;
 
@@ -21,5 +20,10 @@ public class UserSystemRestController {
     @ResponseStatus(HttpStatus.OK)
     List<UserSystem> getUsers() {
         return userSystemRespository.findAll();
+    }
+
+    @GetMapping("/{login}")
+    UserSystem getByLogin(@PathVariable("login") final String login) {
+        return userSystemRespository.findByLogin(login);
     }
 }
