@@ -5,10 +5,11 @@ import java.time.LocalDateTime;
 public class ResponseError {
     private final LocalDateTime timestamp = LocalDateTime.now();
     private final String status = "error";
-    private final Integer statusCode = 400;
+    private final Integer statusCode;
     private final String error;
 
-    public ResponseError(String error) {
+    public ResponseError(Integer statusCode, String error) {
+        this.statusCode = statusCode;
         this.error = error;
     }
 
