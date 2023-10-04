@@ -1,5 +1,6 @@
 package dev.rodrigovaz.api.repository;
 
+import dev.rodrigovaz.api.exception.BusinessException;
 import dev.rodrigovaz.api.model.UserSystem;
 import org.springframework.stereotype.Repository;
 
@@ -10,6 +11,9 @@ import java.util.List;
 public class UserSystemRespository {
 
     public void save(UserSystem userSystem) {
+        if (userSystem.getLogin() == null)
+            throw new BusinessException("Campo de login está nulo");
+
         if (userSystem.getId() == null)
             System.out.println("SAVE - usuário sendo cadastrado na camada de repositório");
 
