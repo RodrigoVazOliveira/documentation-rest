@@ -32,4 +32,10 @@ public class UserSystemRestController {
     void deleteById(@PathVariable("id") final Long id) {
         userSystemRespository.deleteById(id);
     }
+
+    @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
+    void createUser(@RequestBody final UserSystem userSystem) {
+        userSystemRespository.save(userSystem);
+    }
 }
