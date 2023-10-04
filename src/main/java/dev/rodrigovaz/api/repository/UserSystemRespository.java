@@ -16,9 +16,8 @@ public class UserSystemRespository {
         System.out.println("UPDATE - usuário sendo atualizado na camada do repositório");
     }
 
-    public void deleteById(Long id) {
-        System.out.println("DELETE - excluir usuário");
-        System.out.println(id);
+    public void deleteById(final Long id) {
+        System.out.printf("DELETE/%d - excluir usuário\n", id);
     }
 
     public List<UserSystem> findAll() {
@@ -31,5 +30,9 @@ public class UserSystemRespository {
         return userSystems;
     }
 
+    public UserSystem findById(final Long id) {
+        System.out.printf("FINDBYID - %id \n", id);
 
+        return new UserSystem(id, "XPTO", "23432432");
+    }
 }
